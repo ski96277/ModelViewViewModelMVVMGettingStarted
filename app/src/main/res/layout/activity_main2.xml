@@ -9,10 +9,10 @@
         android:layout_height="match_parent"
         tools:context=".view.Main2Activity">
 
-        <Button
+        <android.support.v7.widget.RecyclerView
             android:id="@+id/showToast_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="468dp"
+            android:layout_height="752dp"
             android:text="Button"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

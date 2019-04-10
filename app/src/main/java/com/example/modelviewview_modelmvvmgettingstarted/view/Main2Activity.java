@@ -1,19 +1,16 @@
 package com.example.modelviewview_modelmvvmgettingstarted.view;
 
 import android.arch.lifecycle.Observer;
-import android.arch.lifecycle.ViewModelProvider;
 import android.arch.lifecycle.ViewModelProviders;
 import android.databinding.DataBindingUtil;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Toast;
+import android.support.v7.widget.LinearLayoutManager;
 
 import com.example.modelviewview_modelmvvmgettingstarted.R;
+import com.example.modelviewview_modelmvvmgettingstarted.adapter_class.UserAdapterClass;
 import com.example.modelviewview_modelmvvmgettingstarted.databinding.ActivityMain2Binding;
-import com.example.modelviewview_modelmvvmgettingstarted.databinding.ActivityMainBinding;
-import com.example.modelviewview_modelmvvmgettingstarted.databinding.ActivityMainBindingImpl;
 import com.example.modelviewview_modelmvvmgettingstarted.pojoClass.Users;
 import com.example.modelviewview_modelmvvmgettingstarted.view_model.MainActivity_2_ViewModel;
 
@@ -42,13 +39,17 @@ public class Main2Activity extends AppCompatActivity {
                     }
                 });
             }
-        })*/;
+        })*/
+        ;
+
+        binding_2.showToastBtn.setLayoutManager(new LinearLayoutManager(this));
 
 //get all data From modelView Class
         mainActivity_2_viewModel.getAllUser_LiveData().observe(this, new Observer<Users[]>() {
             @Override
             public void onChanged(@Nullable Users[] users) {
-                Toast.makeText(Main2Activity.this, "size  - = "+users.length, Toast.LENGTH_SHORT).show();
+
+                binding_2.showToastBtn.setAdapter(new UserAdapterClass(users));
             }
         });
 
